@@ -16,7 +16,7 @@ import java.util.Map;
 import static com.yize.qqmusic.model.SongUtils.*;
 import static com.yize.qqmusic.util.HttpRequestHelper.*;
 
-public class QqMusicSinger {
+public class QqMusicSingerProfile {
 
     public List<SongBean> getSongBySingerMid(String singerMid,int start,int num){
         String response=requestSingerInfo(singerMid,start,num);
