@@ -1,10 +1,17 @@
 package com.yize.qqmusic.model.base;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Pay {
+    @SerializedName("pay_album")
     public int payAlbum;
+    @SerializedName("price_album")
     public int payAlbumPrice;
+    @SerializedName("pay_down")
     public int payDownload;
+    @SerializedName("pay_state")
     public int payInfo;
+    @SerializedName("pay_play")
     public int payPlay;
 
     public Pay() {

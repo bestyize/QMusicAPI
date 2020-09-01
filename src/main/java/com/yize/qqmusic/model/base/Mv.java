@@ -1,9 +1,15 @@
 package com.yize.qqmusic.model.base;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Mv {
+    @SerializedName("id")
     private String mvId;
+    @SerializedName("vid")
     private String mvVid;
+    @SerializedName("name")
     private String mvName;
+    @SerializedName("id")
     private String mvTitle;
 
     public Mv() {

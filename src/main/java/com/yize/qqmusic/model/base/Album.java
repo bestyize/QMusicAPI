@@ -1,9 +1,15 @@
 package com.yize.qqmusic.model.base;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Album {
+    @SerializedName("id")
     public String albumId;
+    @SerializedName("mid")
     public String albumMid;
+    @SerializedName("name")
     public String albumName;
+    @SerializedName("time_public")
     public String timePublish;
 
     public Album() {
