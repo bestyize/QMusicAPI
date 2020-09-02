@@ -1,5 +1,8 @@
 package com.yize.qqmusic.util;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
@@ -16,6 +19,7 @@ public class HttpRequestHelper {
     public static final String HEADER_CONTENT_TYPE="Content-Type";
     public static final String HEADER_HOST="Host";
     public static final String HEADER_ACCEPT="Accept";
+    private static final Logger logger= LogManager.getLogger(Base64Converter.class);
     public static String downloadWebSiteUseGet(String link, Map<String,String> headerMap){
         StringBuilder sb=new StringBuilder();
         try {
@@ -36,9 +40,11 @@ public class HttpRequestHelper {
             }
             reader.close();
             conn.disconnect();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
+        logger.info(link);
         return sb.toString();
     }
     /**

@@ -3,13 +3,13 @@ package com.yize.qqmusic.model.base;
 import com.google.gson.annotations.SerializedName;
 
 public class Album {
-    @SerializedName("id")
+    @SerializedName(value = "albumId",alternate = {"id"})
     public String albumId;
-    @SerializedName("mid")
+    @SerializedName(value = "albumMid",alternate = {"mid"})
     public String albumMid;
-    @SerializedName("name")
+    @SerializedName(value = "albumName",alternate = {"name"})
     public String albumName;
-    @SerializedName("time_public")
+    @SerializedName(value = "timePublish",alternate = {"time_public"})
     public String timePublish;
 
     public Album() {

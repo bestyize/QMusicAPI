@@ -1,5 +1,7 @@
 package com.yize.qqmusic.model;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 import com.yize.qqmusic.model.base.*;
 
 import java.io.Serializable;
@@ -12,18 +14,27 @@ public class SongBean implements Serializable {
 
     private static final long serialVersionUID = 876323294945176354L;
     private String songSrc;//歌曲来源，QQ音乐等
+    @SerializedName(value = "songId",alternate = {"id"})
     private String songId;//歌曲ID
+    @SerializedName(value = "songMid",alternate = {"mid"})
     private String songMid;
+    @SerializedName(value = "songName",alternate = {"name"})
     private String songName;//歌曲名
+    @SerializedName(value = "publishTime",alternate = {"time_public"})
     private String publishTime;
     private String picUrl;//歌曲封面
     private Mv mv;//MV链接
     private String quality;//最高质量
+    private int genre;
     private Album album;
     private Lyric lyric;
     private Pay pay;
+    @SerializedName(value = "singerList",alternate = {"singer"})
     private List<Singer> singerList;
     private Map<String, SongFile> downloadLinkMap;
+
+    public SongBean() {
+    }
 
     //此处构造函数只传入songSrc,songId,仅供搜索下载链接时候使用
     public SongBean(String songSrc, String songId) {
@@ -139,6 +150,14 @@ public class SongBean implements Serializable {
 
     public void setQuality(String quality) {
         this.quality = quality;
+    }
+
+    public int getGenre() {
+        return genre;
+    }
+
+    public void setGenre(int genre) {
+        this.genre = genre;
     }
 
     public Map<String, SongFile> getDownloadLinkMap() {

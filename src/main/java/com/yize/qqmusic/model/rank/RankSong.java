@@ -1,8 +1,8 @@
-package com.yize.qqmusic.model.base;
+package com.yize.qqmusic.model.rank;
 
 public class RankSong{
     int rank;
-    int rankTYpe;
+    int rankType;
     int rankValue;
     int recType;
     int songId;
@@ -22,12 +22,12 @@ public class RankSong{
         this.rank = rank;
     }
 
-    public int getRankTYpe() {
-        return rankTYpe;
+    public int getRankType() {
+        return rankType;
     }
 
-    public void setRankTYpe(int rankTYpe) {
-        this.rankTYpe = rankTYpe;
+    public void setRankType(int rankType) {
+        this.rankType = rankType;
     }
 
     public int getRankValue() {

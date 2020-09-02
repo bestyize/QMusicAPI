@@ -1,7 +1,6 @@
-package com.yize.qqmusic.model;
+package com.yize.qqmusic.model.rank;
 
 import com.google.gson.annotations.SerializedName;
-import com.yize.qqmusic.model.base.RankSong;
 
 import java.util.List;
 
@@ -21,8 +20,7 @@ public class TopRank{
     //Map<String,List<Integer>> history;
     long listenNum;
     int totalNum;
-    @SerializedName("song")
-    List<RankSong> songList;
+
     String headPicUrl;
     String fontPicUrl;
     String mbFrontPicUrl;
@@ -43,6 +41,8 @@ public class TopRank{
     String musichallTitle;
     String musichallSubtitle;
     String musichallPicUrl;
+    @SerializedName("song")
+    List<RankSong> songList;
 
     public int getTopId() {
         return topId;

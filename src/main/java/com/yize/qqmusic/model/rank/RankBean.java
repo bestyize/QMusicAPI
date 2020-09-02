@@ -1,12 +1,12 @@
-package com.yize.qqmusic.model;
+package com.yize.qqmusic.model.rank;
 
 import com.google.gson.annotations.SerializedName;
+import com.yize.qqmusic.model.rank.TopRank;
 
 import java.util.List;
-import java.util.Map;
 
 public class RankBean {
-    List<RankGroup> groupList;
+    private List<RankGroup> groupList;
 
     public List<RankGroup> getGroupList() {
         return groupList;
