@@ -1,7 +1,6 @@
 package com.yize.qqmusic.music.impl.rank;
 
 import com.google.gson.annotations.SerializedName;
-import com.yize.qqmusic.model.rank.DetailRankBean;
 import com.yize.qqmusic.model.rank.MainRankBean;
 import com.yize.qqmusic.util.GsonConverter;
 import com.yize.qqmusic.util.HttpRequestHelper;
@@ -10,11 +9,10 @@ import org.apache.logging.log4j.Logger;
 
 import java.net.URLEncoder;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-public class MainRank {
-    private static final Logger logger= LogManager.getLogger(MainRank.class);
+public class QqMusicMainRank {
+    private static final Logger logger= LogManager.getLogger(QqMusicMainRank.class);
     private static final String requestParams="{\"req_0\":{\"module\":\"musicToplist.ToplistInfoServer\",\"method\":\"GetAll\",\"param\":{}},\"comm\":{\"g_tk\":5381,\"uin\":\"0\",\"format\":\"json\",\"ct\":20,\"cv\":1773,\"platform\":\"wk_v17\"}}";
     private static final String baseLink="https://u.y.qq.com/cgi-bin/musics.fcg?sign=zzac3rwdj5r38hcdz8bea0f253f7c3786595bc8d7e3cd97f67";
     public MainRankBean getMainRank(){

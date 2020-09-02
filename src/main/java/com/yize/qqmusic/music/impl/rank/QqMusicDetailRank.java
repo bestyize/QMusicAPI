@@ -18,8 +18,8 @@ import static com.yize.qqmusic.model.SongUtils.*;
 import static com.yize.qqmusic.model.SongUtils.QUALITY_LQ;
 import static com.yize.qqmusic.music.impl.searchdown.QqMusic.qualityFileTypeMap;
 
-public class DetailRank {
-    private static final Logger logger= LogManager.getLogger(DetailRank.class);
+public class QqMusicDetailRank {
+    private static final Logger logger= LogManager.getLogger(QqMusicDetailRank.class);
     private static final String MODULE="musicToplist.ToplistInfoServer";
     private static final String METHOD="GetDetail";
     private static final String baseLink="https://u.y.qq.com/cgi-bin/musics.fcg?sign=zza82kuf44boa3rr4ebca96a55fbd31d14ffae0af6ce5649";
