@@ -9,7 +9,7 @@ public class Singer {
     public String singerMid;
     @SerializedName(value = "singerName",alternate = {"name"})
     public String singerName;
-    @SerializedName(value = "singPic",alternate = {"pic"})
+    @SerializedName(value = "singPic",alternate = {"pic","picUrl"})
     public String singPic;
 
     public Singer() {

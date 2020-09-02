@@ -97,7 +97,7 @@ public class QqMusicDetailRank {
                 ""));
         bean.setDownloadLinkMap(downloadLinkMap);
         ext.setFile(null);
-        bean.setLyric(new Lyric(ext.getSongId(),ext.getSongName()));
+        bean.setLyric(new Lyric(ext.getSongMid(),ext.getSongName()));
         return bean;
     }
 

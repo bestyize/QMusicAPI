@@ -1,6 +1,7 @@
 package com.yize.qqmusic.model.base;
 
 import com.google.gson.annotations.SerializedName;
+import sun.dc.pr.PRError;
 
 public class Mv {
     @SerializedName(value = "mvId",alternate = {"id"})
@@ -11,6 +12,10 @@ public class Mv {
     private String mvName;
     @SerializedName(value = "mvTitle",alternate = {"title"})
     private String mvTitle;
+    @SerializedName(value ="playCount",alternate = "playcnt")
+    private int playCount;
+    @SerializedName(value ="coverPic",alternate = "cover_pic_medium")
+    private String coverPic;
 
     public Mv() {
     }
@@ -52,5 +57,21 @@ public class Mv {
 
     public void setMvTitle(String mvTitle) {
         this.mvTitle = mvTitle;
+    }
+
+    public int getPlayCount() {
+        return playCount;
+    }
+
+    public void setPlayCount(int playCount) {
+        this.playCount = playCount;
+    }
+
+    public String getCoverPic() {
+        return coverPic==null?null:coverPic.replaceAll("\\\\","");
+    }
+
+    public void setCoverPic(String coverPic) {
+        this.coverPic = coverPic;
     }
 }
