@@ -6,20 +6,17 @@ import com.yize.qqmusic.model.base.Lyric;
 import com.yize.qqmusic.model.base.SongFile;
 import com.yize.qqmusic.model.rank.DetailRankBean;
 import com.yize.qqmusic.model.rank.TopRank;
-import com.yize.qqmusic.music.impl.QqMusic;
 import com.yize.qqmusic.util.GsonConverter;
 import com.yize.qqmusic.util.HttpRequestHelper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-import java.text.DateFormat;
 import java.util.*;
 
 import static com.yize.qqmusic.model.SongUtils.*;
 import static com.yize.qqmusic.model.SongUtils.QUALITY_LQ;
-import static com.yize.qqmusic.music.impl.QqMusic.qualityFileTypeMap;
+import static com.yize.qqmusic.music.impl.searchdown.QqMusic.qualityFileTypeMap;
 
 public class DetailRank {
     private static final Logger logger= LogManager.getLogger(DetailRank.class);

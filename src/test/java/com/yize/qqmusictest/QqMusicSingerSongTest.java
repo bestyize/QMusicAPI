@@ -1,8 +1,7 @@
 package com.yize.qqmusictest;
 
-import com.google.gson.annotations.SerializedName;
 import com.yize.qqmusic.model.SongBean;
-import com.yize.qqmusic.music.impl.QqMusicSingerProfile;
+import com.yize.qqmusic.music.impl.singer.QqMusicSingerProfile;
 import com.yize.qqmusic.util.GsonConverter;
 import org.junit.Test;
 

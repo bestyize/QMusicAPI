@@ -1,8 +1,7 @@
 package com.yize.qqmusic.servlet;
 
 import com.yize.qqmusic.model.base.Singer;
-import com.yize.qqmusic.music.impl.QqMusicSingerProfile;
-import com.yize.qqmusic.music.impl.QqMusicSingerRank;
+import com.yize.qqmusic.music.impl.singer.QqMusicSingerRank;
 import com.yize.qqmusic.util.GsonConverter;
 import com.yize.qqmusic.util.NumberConverter;
 

@@ -5,9 +5,9 @@ import com.yize.qqmusic.model.rank.TopRank;
 
 import java.util.List;
 
-public class RankBean {
+public class MainRankBean {
+    @SerializedName(value = "groupList",alternate = "group")
     private List<RankGroup> groupList;
-
     public List<RankGroup> getGroupList() {
         return groupList;
     }
@@ -19,7 +19,7 @@ public class RankBean {
     class RankGroup{
         int groupId;
         String groupName;
-        @SerializedName("toplist")
+        @SerializedName(value = "topRankList",alternate = {"toplist"})
         List<TopRank> topRankList;
 
         public int getGroupId() {

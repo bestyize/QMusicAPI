@@ -1,25 +1,19 @@
-package com.yize.qqmusic.music.impl;
+package com.yize.qqmusic.music.impl.searchdown;
 
-import com.google.gson.Gson;
-import com.google.gson.annotations.SerializedName;
 import com.yize.qqmusic.model.SongBean;
-import com.yize.qqmusic.model.base.*;
 import com.yize.qqmusic.music.MusicHelper;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.net.URLEncoder;
 import java.util.*;
 
-import com.yize.qqmusic.util.*;
 import static com.yize.qqmusic.model.SongUtils.*;
 import static com.yize.qqmusic.model.SongUtils.QUALITY_LQ;
-import static com.yize.qqmusic.music.impl.QqMusicDownload.getDownloadLinkBySongId;
-import static com.yize.qqmusic.music.impl.QqMusicDownload.getDownloadLinkBySongIdList;
-import static com.yize.qqmusic.music.impl.QqMusicSearch.qqSearchRequest;
-import static com.yize.qqmusic.music.impl.QqMusicSearch.qqSongSearchRespProcess;
-import com.yize.qqmusic.music.impl.QqMusicDownload.*;
+import static com.yize.qqmusic.music.impl.searchdown.QqMusicDownload.getDownloadLinkBySongId;
+import static com.yize.qqmusic.music.impl.searchdown.QqMusicDownload.getDownloadLinkBySongIdList;
+import static com.yize.qqmusic.music.impl.searchdown.QqMusicSearch.qqSearchRequest;
+import static com.yize.qqmusic.music.impl.searchdown.QqMusicSearch.qqSongSearchRespProcess;
 
 public class QqMusic implements MusicHelper {
     private static final Logger logger= LogManager.getLogger(QqMusic.class);

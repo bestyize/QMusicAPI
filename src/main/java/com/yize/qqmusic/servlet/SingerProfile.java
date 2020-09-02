@@ -1,8 +1,7 @@
 package com.yize.qqmusic.servlet;
 
 import com.yize.qqmusic.model.SongBean;
-import com.yize.qqmusic.music.impl.QqMusic;
-import com.yize.qqmusic.music.impl.QqMusicSingerProfile;
+import com.yize.qqmusic.music.impl.singer.QqMusicSingerProfile;
 import com.yize.qqmusic.util.GsonConverter;
 
 import javax.servlet.ServletException;

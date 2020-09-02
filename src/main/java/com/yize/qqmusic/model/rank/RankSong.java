@@ -3,7 +3,7 @@ package com.yize.qqmusic.model.rank;
 public class RankSong{
     int rank;
     int rankType;
-    int rankValue;
+    String rankValue;
     int recType;
     int songId;
     String vid;
@@ -30,11 +30,11 @@ public class RankSong{
         this.rankType = rankType;
     }
 
-    public int getRankValue() {
+    public String getRankValue() {
         return rankValue;
     }
 
-    public void setRankValue(int rankValue) {
+    public void setRankValue(String rankValue) {
         this.rankValue = rankValue;
     }
 

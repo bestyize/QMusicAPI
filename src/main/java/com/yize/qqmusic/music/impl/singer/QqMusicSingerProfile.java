@@ -1,4 +1,4 @@
-package com.yize.qqmusic.music.impl;
+package com.yize.qqmusic.music.impl.singer;
 
 import com.google.gson.Gson;
 import com.google.gson.annotations.SerializedName;

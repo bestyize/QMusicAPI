@@ -1,4 +1,4 @@
-package com.yize.qqmusic.music.impl;
+package com.yize.qqmusic.music.impl.singer;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
