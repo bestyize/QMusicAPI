@@ -24,11 +24,7 @@ public class QqMusicDetailRank {
     private static final String METHOD="GetDetail";
     private static final String baseLink="https://u.y.qq.com/cgi-bin/musics.fcg?sign=zza82kuf44boa3rr4ebca96a55fbd31d14ffae0af6ce5649";
     public DetailRankBean getRankDetail(int topId,int num,String period){
-        if(period==null){
-            period=new Date().toString();
-        }
         String requestParams=requestRaramBuilder(topId,num,period);
-
         return parseDetailRank(requestTopList(requestParams));
     }
 

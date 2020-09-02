@@ -32,8 +32,8 @@ public class DetailRank extends HttpServlet {
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
         response.setContentType("text/json;charset=utf-8");
-        int topId= NumberConverter.convert(request.getParameter("topid"),62);
-        int num= NumberConverter.convert(request.getParameter("num"),100);
+        int topId= NumberConverter.convert(request.getParameter("topid"),62);//topid和num是对应的
+        int num= NumberConverter.convert(request.getParameter("num"),300);
         String period=request.getParameter("period");
         if(detailRank==null){
             detailRank=new QqMusicDetailRank();
