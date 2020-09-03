@@ -13,7 +13,6 @@ public class QqMusicLyric {
     public Lyric getLyricByMid(String songMid){
         String link=baseLink+songMid;
         String response=requestLyric(link);
-        System.out.println(response);
         return parseLyric(response,songMid);
     }
 

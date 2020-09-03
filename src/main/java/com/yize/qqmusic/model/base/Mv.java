@@ -3,6 +3,8 @@ package com.yize.qqmusic.model.base;
 import com.google.gson.annotations.SerializedName;
 import sun.dc.pr.PRError;
 
+import java.util.Map;
+
 public class Mv {
     @SerializedName(value = "mvId",alternate = {"id"})
     private String mvId;
@@ -16,6 +18,11 @@ public class Mv {
     private int playCount;
     @SerializedName(value ="coverPic",alternate = "cover_pic_medium")
     private String coverPic;
+    @SerializedName(value = "timePublish",alternate = "pubdate")
+    private long timePublish;
+    private long duration;
+    private String desc;
+
 
     public Mv() {
     }
@@ -73,5 +80,30 @@ public class Mv {
 
     public void setCoverPic(String coverPic) {
         this.coverPic = coverPic;
+    }
+
+
+    public long getTimePublish() {
+        return timePublish;
+    }
+
+    public void setTimePublish(long timePublish) {
+        this.timePublish = timePublish;
+    }
+
+    public long getDuration() {
+        return duration;
+    }
+
+    public void setDuration(long duration) {
+        this.duration = duration;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 }

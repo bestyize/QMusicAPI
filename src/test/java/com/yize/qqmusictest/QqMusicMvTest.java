@@ -10,7 +10,7 @@ public class QqMusicMvTest {
     @Test
     public void test1(){
         QqMusicMv qqMusicMv=new QqMusicMv();
-        MvInfo info=qqMusicMv.getMvInfoByVid("p0034nfuv2q");
+        MvInfo info=qqMusicMv.getMvInfoByVid("w0026q7f01a");
         GsonConverter.printToJson(info);
     }
 }

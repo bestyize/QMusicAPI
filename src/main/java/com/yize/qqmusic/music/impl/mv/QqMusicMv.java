@@ -1,5 +1,7 @@
 package com.yize.qqmusic.music.impl.mv;
 
+import com.google.gson.annotations.SerializedName;
+import com.yize.qqmusic.model.mv.MvBean;
 import com.yize.qqmusic.model.mv.MvInfo;
 import com.yize.qqmusic.util.GsonConverter;
 import com.yize.qqmusic.util.HttpRequestHelper;
@@ -8,38 +10,57 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 public class QqMusicMv {
     private static List<String> defaultRequiredList=new LinkedList<>();
     private static String baseLink="https://u.y.qq.com/cgi-bin/musicu.fcg?_=1599054589618&g_tk=5381&g_tk_new_20200303=5381&uin=0&format=json&inCharset=utf-8&outCharset=utf-8&notice=0&platform=h5&needNewCode=1&ct=23&cv=0";
-    public MvInfo getMvInfoByVid(String vid){
-        if(defaultRequiredList.size()==0){
-            defaultRequiredList.add("vid");
-            defaultRequiredList.add("desc");
-            defaultRequiredList.add("duration");
-            defaultRequiredList.add("pubdate");
-            defaultRequiredList.add("fileid");
-            defaultRequiredList.add("filesize");
-            defaultRequiredList.add("mp4");
-            defaultRequiredList.add("comment_cnt");
-            defaultRequiredList.add("cover_pic_medium");
-            defaultRequiredList.add("name");
-            defaultRequiredList.add("singers");
-            defaultRequiredList.add("playcnt");
-            defaultRequiredList.add("uploader_nick");
-            defaultRequiredList.add("type");
 
-        }
+    private static void configInit(){
+        defaultRequiredList.add("vid");
+        defaultRequiredList.add("desc");
+        defaultRequiredList.add("duration");
+        defaultRequiredList.add("pubdate");
+        defaultRequiredList.add("fileid");
+        defaultRequiredList.add("filesize");
+        defaultRequiredList.add("mp4");
+        defaultRequiredList.add("comment_cnt");
+        defaultRequiredList.add("cover_pic_medium");
+        defaultRequiredList.add("name");
+        defaultRequiredList.add("singers");
+        defaultRequiredList.add("playcnt");
+        defaultRequiredList.add("uploader_nick");
+        defaultRequiredList.add("type");
+    }
+    public MvBean getMvInfoByVid(String vid){
         List<String>vidList=new LinkedList<>();
         vidList.add(vid);
-        String response=requestMvInfo(requestParamBuilder(vidList,defaultRequiredList));
-        List<MvInfo> mvInfoList=parseResponse(response);
-        System.out.println(response);
-        return mvInfoList.size()==0?new MvInfo():mvInfoList.get(0);
+        List<MvBean> mvInfoList=getMvInfoListByVid(vidList);
+        return mvInfoList.size()==0?new MvBean():mvInfoList.get(0);
     }
 
-    public List<MvInfo> parseResponse(String response){
-        List<MvInfo> mvInfoList=new LinkedList<>();
+    public List<MvBean> getMvInfoListByVid(List<String> vidList){
+        if(defaultRequiredList.size()==0){
+            configInit();
+        }
+        String response=requestMvInfo(requestParamBuilder(vidList,defaultRequiredList));
+        return parseResponse(response);
+    }
+
+    public List<MvBean> parseResponse(String response){
+        List<MvBean> mvInfoList=new LinkedList<>();
+        try {
+            ResponseBean responseBean=GsonConverter.fromJson(response,ResponseBean.class);
+            if(responseBean.getCode()==0){
+                Map<String,MvBean> mvBeanMap=responseBean.getData().getMvBeanMap();
+                for (String key:mvBeanMap.keySet()){
+                    mvInfoList.add(mvBeanMap.get(key));
+                }
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         return mvInfoList;
     }
 
@@ -121,6 +142,50 @@ public class QqMusicMv {
                 public void setRequired(List<String> required) {
                     this.required = required;
                 }
+            }
+        }
+    }
+
+    private class ResponseBean{
+        int code;
+        @SerializedName("updateMVInfo")
+        Data1 data;
+
+        public int getCode() {
+            return code;
+        }
+
+        public void setCode(int code) {
+            this.code = code;
+        }
+
+        public Data1 getData() {
+            return data;
+        }
+
+        public void setData(Data1 data) {
+            this.data = data;
+        }
+
+        class Data1{
+            int code;
+            @SerializedName("data")
+            Map<String, MvBean> mvBeanMap;
+
+            public int getCode() {
+                return code;
+            }
+
+            public void setCode(int code) {
+                this.code = code;
+            }
+
+            public Map<String, MvBean> getMvBeanMap() {
+                return mvBeanMap;
+            }
+
+            public void setMvBeanMap(Map<String, MvBean> mvBeanMap) {
+                this.mvBeanMap = mvBeanMap;
             }
         }
     }

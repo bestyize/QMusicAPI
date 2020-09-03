@@ -82,8 +82,8 @@ public class HttpRequestHelper {
             reader.close();
             conn.disconnect();
             response=sb.toString();
-        }catch (Exception ignored){
-
+        }catch (Exception e){
+            e.printStackTrace();
         }
         return response;
     }

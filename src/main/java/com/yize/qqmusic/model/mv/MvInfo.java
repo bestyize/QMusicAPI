@@ -9,4 +9,5 @@ import java.util.List;
 public class MvInfo extends Mv {
     @SerializedName(value = "singerList",alternate = "singers")
     List<Singer> singerList;
+
 }
