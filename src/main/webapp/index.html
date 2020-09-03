@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QQ音乐</title>
+    <script language="JavaScript" src="http://y.qq.com/component/m/qmfe-security-sign/index.umd.js?max_age=2592000">
+    </script>
+    <script>
+        function requestSign(params) {
+            var c='{"detail":{"module":"musicToplist.ToplistInfoServer","method":"GetDetail","param":{"topId":62,"offset":0,"num":300,"period":"2020-09-03"}},"comm":{"ct":24,"cv":0}}';
+            var x=getSecuritySign(c);
+            alert(x);
+        };
+        //document.onload=requestSign();
+    </script>
+</head>
+<body>
+<input type="button" value="ok" onclick="javascript:requestSign('123')">
+<div id="vvv"></div>
+</body>
+</html>

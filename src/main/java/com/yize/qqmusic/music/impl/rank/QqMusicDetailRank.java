@@ -8,6 +8,7 @@ import com.yize.qqmusic.model.rank.DetailRankBean;
 import com.yize.qqmusic.model.rank.TopRank;
 import com.yize.qqmusic.util.GsonConverter;
 import com.yize.qqmusic.util.HttpRequestHelper;
+import com.yize.qqmusic.util.Md5Encrypt;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -22,9 +23,10 @@ public class QqMusicDetailRank {
     private static final Logger logger= LogManager.getLogger(QqMusicDetailRank.class);
     private static final String MODULE="musicToplist.ToplistInfoServer";
     private static final String METHOD="GetDetail";
-    private static final String baseLink="https://u.y.qq.com/cgi-bin/musics.fcg?sign=zza82kuf44boa3rr4ebca96a55fbd31d14ffae0af6ce5649";
+    private static final String baseLink="https://u.y.qq.com/cgi-bin/musicu.fcg";
     public DetailRankBean getRankDetail(int topId,int num,String period){
         String requestParams=requestRaramBuilder(topId,num,period);
+        System.out.println(requestParams);
         return parseDetailRank(requestTopList(requestParams));
     }
 
@@ -32,7 +34,7 @@ public class QqMusicDetailRank {
         String response= null;
         try {
             Map<String,String> headerMap=new HashMap<>();
-            response = HttpRequestHelper.downloadWebSiteUseGet(baseLink+"&data="+URLEncoder.encode(params,"utf-8"),headerMap);
+            response = HttpRequestHelper.downloadWebSiteUseGet(baseLink+"?data="+URLEncoder.encode(params,"utf-8"),headerMap);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -47,7 +49,6 @@ public class QqMusicDetailRank {
         try {
             response=response.replaceAll("%","");
             ResponseBean responseBean=GsonConverter.fromJson(response,ResponseBean.class);
-
             detailRankBean.setTopRank(responseBean.getData().getData().getTopRank());
             List<SongBean> songBeanList=new LinkedList<>();
             List<ResponseBean.Data1.Data.SongBeanExt> songBeanExtList=responseBean.getData().getData().getSongList();
@@ -103,22 +104,22 @@ public class QqMusicDetailRank {
 
     private String requestRaramBuilder(int topId,int num,String period){
         RequestParam param=new RequestParam();
-        param.getReq_0().getParam().setTopid(topId);
-        param.getReq_0().getParam().setNum(num);
-        param.getReq_0().getParam().setPeriod(period);
+        param.getDetail().getParam().setTopId(topId);
+        param.getDetail().getParam().setNum(num);
+        param.getDetail().getParam().setPeriod(period);
         return GsonConverter.toJson(param);
     }
 
     private class RequestParam{
-        Data1 req_0=new Data1();
+        Data1 detail=new Data1();
         Data2 comm=new Data2();
 
-        public Data1 getReq_0() {
-            return req_0;
+        public Data1 getDetail() {
+            return detail;
         }
 
-        public void setReq_0(Data1 req_0) {
-            this.req_0 = req_0;
+        public void setDetail(Data1 detail) {
+            this.detail = detail;
         }
 
         public Data2 getComm() {
@@ -159,16 +160,25 @@ public class QqMusicDetailRank {
             }
 
             class Param{
-                int topid;
+                int topId;
+                int offset=0;
                 int num;
                 String period;
 
-                public int getTopid() {
-                    return topid;
+                public int getTopId() {
+                    return topId;
                 }
 
-                public void setTopid(int topid) {
-                    this.topid = topid;
+                public void setTopId(int topId) {
+                    this.topId = topId;
+                }
+
+                public int getOffset() {
+                    return offset;
+                }
+
+                public void setOffset(int offset) {
+                    this.offset = offset;
                 }
 
                 public int getNum() {
@@ -191,36 +201,8 @@ public class QqMusicDetailRank {
         }
 
         class Data2{
-            long g_tk=5381;
-            String uin="0";
-            String format="json";
-            int ct=20;
-            int cv=1773;
-            String platform="wk_v17";
-
-            public long getG_tk() {
-                return g_tk;
-            }
-
-            public void setG_tk(long g_tk) {
-                this.g_tk = g_tk;
-            }
-
-            public String getUin() {
-                return uin;
-            }
-
-            public void setUin(String uin) {
-                this.uin = uin;
-            }
-
-            public String getFormat() {
-                return format;
-            }
-
-            public void setFormat(String format) {
-                this.format = format;
-            }
+            int ct=24;
+            int cv=0;
 
             public int getCt() {
                 return ct;
@@ -237,21 +219,13 @@ public class QqMusicDetailRank {
             public void setCv(int cv) {
                 this.cv = cv;
             }
-
-            public String getPlatform() {
-                return platform;
-            }
-
-            public void setPlatform(String platform) {
-                this.platform = platform;
-            }
         }
     }
 
 
     private class ResponseBean{
         int code;
-        @SerializedName("req_0")
+        @SerializedName("detail")
         Data1 data;
 
         public int getCode() {

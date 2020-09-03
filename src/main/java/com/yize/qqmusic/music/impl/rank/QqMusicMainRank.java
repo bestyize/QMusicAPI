@@ -14,7 +14,7 @@ import java.util.Map;
 public class QqMusicMainRank {
     private static final Logger logger= LogManager.getLogger(QqMusicMainRank.class);
     private static final String requestParams="{\"req_0\":{\"module\":\"musicToplist.ToplistInfoServer\",\"method\":\"GetAll\",\"param\":{}},\"comm\":{\"g_tk\":5381,\"uin\":\"0\",\"format\":\"json\",\"ct\":20,\"cv\":1773,\"platform\":\"wk_v17\"}}";
-    private static final String baseLink="https://u.y.qq.com/cgi-bin/musics.fcg?sign=zzac3rwdj5r38hcdz8bea0f253f7c3786595bc8d7e3cd97f67";
+    private static final String baseLink="https://u.y.qq.com/cgi-bin/musicu.fcg";
     public MainRankBean getMainRank(){
         String response=requestMainRank();
         return parseMainRank(response);
@@ -23,7 +23,7 @@ public class QqMusicMainRank {
         String response= null;
         try {
             Map<String,String> headerMap=new HashMap<>();
-            response = HttpRequestHelper.downloadWebSiteUseGet(baseLink+"&data="+ URLEncoder.encode(requestParams,"utf-8"),headerMap);
+            response = HttpRequestHelper.downloadWebSiteUseGet(baseLink+"?data="+ URLEncoder.encode(requestParams,"utf-8"),headerMap);
         } catch (Exception e) {
             e.printStackTrace();
         }

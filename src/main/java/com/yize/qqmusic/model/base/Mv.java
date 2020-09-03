@@ -16,7 +16,7 @@ public class Mv {
     private String mvTitle;
     @SerializedName(value ="playCount",alternate = "playcnt")
     private int playCount;
-    @SerializedName(value ="coverPic",alternate = "cover_pic_medium")
+    @SerializedName(value ="coverPic",alternate = {"cover_pic_medium"})
     private String coverPic;
     @SerializedName(value = "timePublish",alternate = "pubdate")
     private long timePublish;

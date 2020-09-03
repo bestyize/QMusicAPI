@@ -9,7 +9,7 @@ public class QqMusicDetailRankTest {
     QqMusicDetailRank qqMusicDetailRank =new QqMusicDetailRank();
     @Test
     public void testDetailAcq(){
-        DetailRankBean detailRankBean= qqMusicDetailRank.getRankDetail(62,300,"2020-09-02");
+        DetailRankBean detailRankBean= qqMusicDetailRank.getRankDetail(62,300,"2020-09-03");
         GsonConverter.printToJson(detailRankBean);
     }
 }
