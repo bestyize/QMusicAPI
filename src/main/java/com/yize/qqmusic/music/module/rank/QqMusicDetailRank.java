@@ -14,9 +14,10 @@ import org.apache.logging.log4j.Logger;
 import java.net.URLEncoder;
 import java.util.*;
 
+import static com.yize.qqmusic.common.CommonConfig.qualityFileTypeMap;
 import static com.yize.qqmusic.model.SongUtils.*;
 import static com.yize.qqmusic.model.SongUtils.QUALITY_LQ;
-import static com.yize.qqmusic.music.module.searchdown.QqMusic.qualityFileTypeMap;
+
 
 public class QqMusicDetailRank {
     private static final Logger logger= LogManager.getLogger(QqMusicDetailRank.class);

@@ -17,22 +17,7 @@ import static com.yize.qqmusic.music.module.searchdown.QqMusicSearch.qqSongSearc
 
 public class QqMusic implements MusicHelper {
     private static final Logger logger= LogManager.getLogger(QqMusic.class);
-    public static final HashMap<String, String> qualityMap;
-    public static final HashMap<String, String> qualityFileTypeMap ;
-    public static final String baseDownloadServer="http://ws.stream.qqmusic.qq.com/";
 
-    static {
-        qualityMap=new HashMap<>();
-        qualityMap.put(QUALITY_SQ,"F000songid.flac");
-        qualityMap.put(QUALITY_HQ,"M800songid.mp3");
-        qualityMap.put(QUALITY_PQ,"M500songid.mp3");
-        qualityMap.put(QUALITY_LQ,"C400songid.m4a");
-        qualityFileTypeMap=new HashMap<>();
-        qualityFileTypeMap.put(QUALITY_SQ,"flac");
-        qualityFileTypeMap.put(QUALITY_HQ,"mp3");
-        qualityFileTypeMap.put(QUALITY_PQ,"mp3");
-        qualityFileTypeMap.put(QUALITY_LQ,"m4a");
-    }
 
     @Override
     public List<SongBean> searchMusic(String keyword, int num) {

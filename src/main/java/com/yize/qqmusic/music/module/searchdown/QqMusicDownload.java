@@ -9,9 +9,11 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import com.yize.qqmusic.util.*;
+
+import static com.yize.qqmusic.common.CommonConfig.baseDownloadServer;
+import static com.yize.qqmusic.common.CommonConfig.qualityMap;
 import static com.yize.qqmusic.model.SongUtils.SRC_QQ;
-import static com.yize.qqmusic.music.module.searchdown.QqMusic.baseDownloadServer;
-import static com.yize.qqmusic.music.module.searchdown.QqMusic.qualityMap;
+
 
 public class QqMusicDownload {
 

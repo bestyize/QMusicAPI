@@ -10,6 +10,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import static com.yize.qqmusic.common.CommonConfig.qualityFileTypeMap;
 import static com.yize.qqmusic.model.SongUtils.*;
 import static com.yize.qqmusic.util.HttpRequestHelper.*;
 
@@ -60,7 +61,7 @@ public class QqMusicSingerProfile {
                         detail.getFile().getSqSize()>0?QUALITY_SQ:QUALITY_HQ,
                         "",
                         parseMv(detail.getMv()),
-                        parseDownloadLinkMap(""));
+                        parseDownloadLinkMap(detail));
                 list.add(songBean);
             }
         }catch (Exception e){
@@ -70,8 +71,41 @@ public class QqMusicSingerProfile {
         return list;
     }
 
-    private Map<String, SongFile> parseDownloadLinkMap(String s) {
-        return new HashMap<>();
+    private Map<String, SongFile> parseDownloadLinkMap(ResponseBean.Data.Song.MusicData detail) {
+        Map<String, SongFile> downloadMap=new HashMap<>();
+        SongFile lqSong=new SongFile(
+                detail.getSongMid(),
+                QUALITY_LQ,
+                detail.getFile().getLqSize(),
+                detail.getDuration(),
+                qualityFileTypeMap.get(QUALITY_LQ),
+                "");
+        SongFile pqSong=new SongFile(
+                detail.getSongMid(),
+                QUALITY_PQ,
+                detail.getFile().getPqSize(),
+                detail.getDuration(),
+                qualityFileTypeMap.get(QUALITY_PQ),
+                "");
+        SongFile hqSong=new SongFile(
+                detail.getSongMid(),
+                QUALITY_HQ,
+                detail.getFile().getHqSize(),
+                detail.getDuration(),
+                qualityFileTypeMap.get(QUALITY_HQ),
+                "");
+        SongFile sqSong=new SongFile(
+                detail.getSongMid(),
+                QUALITY_SQ,
+                detail.getFile().getSqSize(),
+                detail.getDuration(),
+                qualityFileTypeMap.get(QUALITY_SQ),
+                "");
+        downloadMap.put(QUALITY_LQ,lqSong);
+        downloadMap.put(QUALITY_PQ,pqSong);
+        downloadMap.put(QUALITY_HQ,hqSong);
+        downloadMap.put(QUALITY_SQ,sqSong);
+        return downloadMap;
     }
 
     private Mv parseMv(ResponseBean.Data.Song.MusicData.Mv mv) {

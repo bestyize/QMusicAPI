@@ -1,6 +1,7 @@
 package com.yize.qqmusictest;
 
 import com.yize.qqmusic.model.SongBean;
+import com.yize.qqmusic.music.module.searchdown.QqMusicDownload;
 import com.yize.qqmusic.music.module.singer.QqMusicSingerProfile;
 import com.yize.qqmusic.util.GsonConverter;
 import org.junit.Test;
@@ -12,7 +13,8 @@ public class QqMusicSingerSongTest {
     @Test
     public void testGetSongBySingerMid(){
         String mid="0025NhlN2yWrP4";
-        List<SongBean> songBeanList=helper.getSongBySingerMid(mid,0,100);
+        List<SongBean> songBeanList=helper.getSongBySingerMid(mid,101,200);
+        QqMusicDownload.getDownloadLinkBySongIdList(songBeanList);
         GsonConverter.printToJson(songBeanList);
     }
 }

@@ -13,9 +13,10 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import static com.yize.qqmusic.common.CommonConfig.qualityFileTypeMap;
 import static com.yize.qqmusic.model.SongUtils.*;
 import static com.yize.qqmusic.model.SongUtils.QUALITY_LQ;
-import static com.yize.qqmusic.music.module.searchdown.QqMusic.qualityFileTypeMap;
+
 
 public class QqMusicSearch {
 
