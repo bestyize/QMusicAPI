@@ -1,16 +1,11 @@
-package com.yize.qqmusic.music.impl.mv;
+package com.yize.qqmusic.music.module.mv;
 
 import com.google.gson.annotations.SerializedName;
-import com.yize.qqmusic.model.base.Mv;
 import com.yize.qqmusic.model.base.MvFile;
 import com.yize.qqmusic.model.mv.MvBean;
 import com.yize.qqmusic.util.GsonConverter;
 import com.yize.qqmusic.util.HttpRequestHelper;
-import javafx.scene.chart.ValueAxis;
-import sun.dc.pr.PRError;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;

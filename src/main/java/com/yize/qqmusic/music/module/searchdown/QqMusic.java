@@ -1,4 +1,4 @@
-package com.yize.qqmusic.music.impl.searchdown;
+package com.yize.qqmusic.music.module.searchdown;
 
 import com.yize.qqmusic.model.SongBean;
 import com.yize.qqmusic.music.MusicHelper;
@@ -10,10 +10,10 @@ import java.util.*;
 
 import static com.yize.qqmusic.model.SongUtils.*;
 import static com.yize.qqmusic.model.SongUtils.QUALITY_LQ;
-import static com.yize.qqmusic.music.impl.searchdown.QqMusicDownload.getDownloadLinkBySongId;
-import static com.yize.qqmusic.music.impl.searchdown.QqMusicDownload.getDownloadLinkBySongIdList;
-import static com.yize.qqmusic.music.impl.searchdown.QqMusicSearch.qqSearchRequest;
-import static com.yize.qqmusic.music.impl.searchdown.QqMusicSearch.qqSongSearchRespProcess;
+import static com.yize.qqmusic.music.module.searchdown.QqMusicDownload.getDownloadLinkBySongId;
+import static com.yize.qqmusic.music.module.searchdown.QqMusicDownload.getDownloadLinkBySongIdList;
+import static com.yize.qqmusic.music.module.searchdown.QqMusicSearch.qqSearchRequest;
+import static com.yize.qqmusic.music.module.searchdown.QqMusicSearch.qqSongSearchRespProcess;
 
 public class QqMusic implements MusicHelper {
     private static final Logger logger= LogManager.getLogger(QqMusic.class);

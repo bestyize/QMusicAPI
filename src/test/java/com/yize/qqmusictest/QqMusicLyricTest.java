@@ -1,7 +1,7 @@
 package com.yize.qqmusictest;
 
 import com.yize.qqmusic.model.base.Lyric;
-import com.yize.qqmusic.music.impl.lyric.QqMusicLyric;
+import com.yize.qqmusic.music.module.lyric.QqMusicLyric;
 import com.yize.qqmusic.util.GsonConverter;
 import org.junit.Test;
 

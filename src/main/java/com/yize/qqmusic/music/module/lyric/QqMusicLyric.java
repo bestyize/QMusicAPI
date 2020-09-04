@@ -1,4 +1,4 @@
-package com.yize.qqmusic.music.impl.lyric;
+package com.yize.qqmusic.music.module.lyric;
 
 import com.yize.qqmusic.model.base.Lyric;
 import com.yize.qqmusic.util.Base64Converter;

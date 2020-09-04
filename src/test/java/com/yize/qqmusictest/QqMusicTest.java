@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.yize.qqmusic.model.SongBean;
 import com.yize.qqmusic.music.MusicHelper;
-import com.yize.qqmusic.music.impl.searchdown.QqMusic;
+import com.yize.qqmusic.music.module.searchdown.QqMusic;
 import com.yize.qqmusic.util.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

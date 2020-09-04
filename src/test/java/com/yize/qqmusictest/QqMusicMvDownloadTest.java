@@ -1,7 +1,7 @@
 package com.yize.qqmusictest;
 
 import com.yize.qqmusic.model.mv.MvBean;
-import com.yize.qqmusic.music.impl.mv.QqMusicMvDownload;
+import com.yize.qqmusic.music.module.mv.QqMusicMvDownload;
 import com.yize.qqmusic.util.GsonConverter;
 import org.junit.Test;
 

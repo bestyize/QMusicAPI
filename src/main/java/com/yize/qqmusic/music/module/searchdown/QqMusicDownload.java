@@ -1,4 +1,4 @@
-package com.yize.qqmusic.music.impl.searchdown;
+package com.yize.qqmusic.music.module.searchdown;
 
 import com.google.gson.Gson;
 import com.google.gson.annotations.SerializedName;
@@ -10,8 +10,8 @@ import java.util.List;
 import java.util.Map;
 import com.yize.qqmusic.util.*;
 import static com.yize.qqmusic.model.SongUtils.SRC_QQ;
-import static com.yize.qqmusic.music.impl.searchdown.QqMusic.baseDownloadServer;
-import static com.yize.qqmusic.music.impl.searchdown.QqMusic.qualityMap;
+import static com.yize.qqmusic.music.module.searchdown.QqMusic.baseDownloadServer;
+import static com.yize.qqmusic.music.module.searchdown.QqMusic.qualityMap;
 
 public class QqMusicDownload {
 

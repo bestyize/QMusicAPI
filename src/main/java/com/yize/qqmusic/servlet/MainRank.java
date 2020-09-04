@@ -1,7 +1,7 @@
 package com.yize.qqmusic.servlet;
 
 import com.yize.qqmusic.model.rank.MainRankBean;
-import com.yize.qqmusic.music.impl.rank.QqMusicMainRank;
+import com.yize.qqmusic.music.module.rank.QqMusicMainRank;
 import com.yize.qqmusic.util.GsonConverter;
 
 import javax.servlet.ServletException;

@@ -1,13 +1,10 @@
-package com.yize.qqmusic.music.impl.singer;
+package com.yize.qqmusic.music.module.singer;
 
-import com.google.gson.Gson;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.yize.qqmusic.model.SongBean;
 import com.yize.qqmusic.model.base.*;
 import com.yize.qqmusic.util.GsonConverter;
 
-import java.io.File;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;

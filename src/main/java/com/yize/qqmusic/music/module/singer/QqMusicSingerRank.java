@@ -1,4 +1,4 @@
-package com.yize.qqmusic.music.impl.singer;
+package com.yize.qqmusic.music.module.singer;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Map;
 
 import com.google.gson.annotations.SerializedName;
-import com.sun.org.apache.bcel.internal.ExceptionConst;
 import com.yize.qqmusic.model.base.Singer;
 import com.yize.qqmusic.util.GsonConverter;
 import com.yize.qqmusic.util.HttpRequestHelper;

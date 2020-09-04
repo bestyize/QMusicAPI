@@ -1,4 +1,4 @@
-package com.yize.qqmusic.music.impl.rank;
+package com.yize.qqmusic.music.module.rank;
 
 import com.google.gson.annotations.SerializedName;
 import com.yize.qqmusic.model.rank.MainRankBean;

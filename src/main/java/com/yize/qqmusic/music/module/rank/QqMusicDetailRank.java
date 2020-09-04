@@ -1,4 +1,4 @@
-package com.yize.qqmusic.music.impl.rank;
+package com.yize.qqmusic.music.module.rank;
 
 import com.google.gson.annotations.SerializedName;
 import com.yize.qqmusic.model.SongBean;
@@ -8,7 +8,6 @@ import com.yize.qqmusic.model.rank.DetailRankBean;
 import com.yize.qqmusic.model.rank.TopRank;
 import com.yize.qqmusic.util.GsonConverter;
 import com.yize.qqmusic.util.HttpRequestHelper;
-import com.yize.qqmusic.util.Md5Encrypt;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -17,7 +16,7 @@ import java.util.*;
 
 import static com.yize.qqmusic.model.SongUtils.*;
 import static com.yize.qqmusic.model.SongUtils.QUALITY_LQ;
-import static com.yize.qqmusic.music.impl.searchdown.QqMusic.qualityFileTypeMap;
+import static com.yize.qqmusic.music.module.searchdown.QqMusic.qualityFileTypeMap;
 
 public class QqMusicDetailRank {
     private static final Logger logger= LogManager.getLogger(QqMusicDetailRank.class);

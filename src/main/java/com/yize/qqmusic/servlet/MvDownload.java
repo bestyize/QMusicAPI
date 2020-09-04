@@ -2,8 +2,7 @@ package com.yize.qqmusic.servlet;
 
 import com.yize.qqmusic.model.mv.MvBean;
 import com.yize.qqmusic.model.mv.MvInfo;
-import com.yize.qqmusic.music.impl.mv.QqMusicMv;
-import com.yize.qqmusic.music.impl.mv.QqMusicMvDownload;
+import com.yize.qqmusic.music.module.mv.QqMusicMvDownload;
 import com.yize.qqmusic.util.GsonConverter;
 
 import javax.servlet.ServletException;

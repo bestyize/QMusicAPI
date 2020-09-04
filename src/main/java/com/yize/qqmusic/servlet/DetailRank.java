@@ -1,9 +1,7 @@
 package com.yize.qqmusic.servlet;
 
 import com.yize.qqmusic.model.rank.DetailRankBean;
-import com.yize.qqmusic.model.rank.MainRankBean;
-import com.yize.qqmusic.music.impl.rank.QqMusicDetailRank;
-import com.yize.qqmusic.music.impl.rank.QqMusicMainRank;
+import com.yize.qqmusic.music.module.rank.QqMusicDetailRank;
 import com.yize.qqmusic.util.GsonConverter;
 import com.yize.qqmusic.util.NumberConverter;
 
@@ -12,10 +10,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.swing.text.DateFormatter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 

@@ -867,4 +867,9 @@ public interface ModuleRequestConfig {
         public static final String METHOD = "GetPageUrl";
         public static final String MODULE = "Ws.WsMusicApi";
     }
+
+    public interface NewComment{
+        public static final String METHOD="GetNewCommentList";
+        public static final String MODULE = "music.globalComment.CommentReadServer";
+    }
 }

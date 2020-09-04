@@ -1,7 +1,7 @@
 package com.yize.qqmusictest;
 
 import com.yize.qqmusic.model.rank.DetailRankBean;
-import com.yize.qqmusic.music.impl.rank.QqMusicDetailRank;
+import com.yize.qqmusic.music.module.rank.QqMusicDetailRank;
 import com.yize.qqmusic.util.GsonConverter;
 import org.junit.Test;
 
