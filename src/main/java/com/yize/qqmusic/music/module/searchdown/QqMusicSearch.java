@@ -66,7 +66,7 @@ public class QqMusicSearch {
                             parseLyric(detail),
                             parseSingerList(detail.getSingers()),
                             parseAlbum(detail),
-                            detail.getSqSize()>0?QUALITY_SQ:QUALITY_HQ,
+                            detail.getSqSize()>0?QUALITY_SQ:detail.getHqSize()>0?QUALITY_HQ:QUALITY_LQ,
                             "",
                             parseMv(detail),
                             parseDownloadLinkMap(detail));

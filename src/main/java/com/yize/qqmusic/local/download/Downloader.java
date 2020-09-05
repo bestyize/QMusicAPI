@@ -19,11 +19,11 @@ public class Downloader {
 
     public Downloader() {
         executorService=new ThreadPoolExecutor(
-                5,
-                32,
+                64,
+                128,
                 10,
                 TimeUnit.SECONDS,
-                new ArrayBlockingQueue<>(32),
+                new LinkedBlockingQueue<>(1000),
                 new ExceedHandler());
     }
 
@@ -42,7 +42,8 @@ public class Downloader {
 
         @Override
         public void onFailed(DownloadItem item) {
-            logger.info("failed:"+item.saveName);
+            logger.info("failed:"+item.saveName+":delete");
+            item.file.delete();
         }
 
         @Override
@@ -52,7 +53,7 @@ public class Downloader {
 
         @Override
         public void onProgress(DownloadItem item) {
-            logger.info("progress:"+item.saveName+item.downloadedLen+"/"+item.fileSize);
+            //logger.info("progress:"+item.saveName+" "+item.downloadedLen+"/"+item.fileSize);
         }
     };
 
@@ -90,21 +91,24 @@ public class Downloader {
 
         @Override
         public void run() {
+            BufferedInputStream reader=null;
+            RandomAccessFile raf=null;
             try {
                 URL url=new URL(item.downloadLink);
                 HttpURLConnection conn=(HttpURLConnection)url.openConnection();
                 conn.setRequestMethod("GET");
                 conn.setRequestProperty("Range","bytes="+item.downloadedLen+"-"+item.fileSize);
                 conn.setConnectTimeout(10000);
-                RandomAccessFile raf=new RandomAccessFile(item.file,"rwd");
+                raf=new RandomAccessFile(item.file,"rwd");
                 raf.seek(item.downloadedLen);
-                BufferedInputStream reader=new BufferedInputStream(conn.getInputStream());
-                byte[] b=new byte[4096];
+                reader=new BufferedInputStream(conn.getInputStream());
+                logger.info("start:"+item.saveName);
+                byte[] b=new byte[8192];
                 int len;
                 while ((len=reader.read(b))!=-1){
                     raf.write(b,0,len);
                     item.downloadedLen+=len;
-                    listener.onProgress(item);
+                    //listener.onProgress(item);
                 }
                 raf.close();
                 reader.close();
@@ -114,6 +118,14 @@ public class Downloader {
             } catch (Exception e) {
                 e.printStackTrace();
                 listener.onFailed(item);
+            }finally {
+                try {
+                    raf.close();
+                    reader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
             }
         }
     }

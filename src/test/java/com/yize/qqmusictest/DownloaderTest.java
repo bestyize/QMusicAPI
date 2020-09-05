@@ -26,9 +26,8 @@ public class DownloaderTest {
     @Test
     public void testDownload(){
         String mid="0025NhlN2yWrP4";
-        int num=10;
 
-        List<SongBean> songBeanList=singerProfile.getSongBySingerMid(mid,0,2);
+        List<SongBean> songBeanList=singerProfile.getSongBySingerMid(mid,601,250);
 
         GsonConverter.printToJson(songBeanList);
         for (SongBean bean:songBeanList){
@@ -50,11 +49,12 @@ public class DownloaderTest {
             if(bean.getPay().getPayAlbum()==0){
                 downloader.startDownload(item);
             }else {
-                logger.info("需要付费下载");
+                logger.info("需要付费下载:"+item.saveName);
             }
 
         }
         GsonConverter.printToJson(songBeanList);
         //QqMusicDownload.getDownloadLinkBySongIdList(songBeanList);
+        while (true);
     }
 }
